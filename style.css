@@ -148,12 +148,12 @@ tr:nth-child(even) {
 .chart-container {
   margin-top: 25px;
   display: flex;
-  justify-content: center; /* center chart */
+  justify-content: center; 
 }
 
 .chart-container canvas {
-  max-width: 300px;  /* smaller width */
-  max-height: 300px; /* smaller height */
+  max-width: 300px;  
+  max-height: 300px; 
 }
 
 
@@ -184,11 +184,11 @@ body.dark-mode .summary {
 }
 
 body.dark-mode tr:nth-child(even) {
-  background: #2f2f48;  /* darker alternate row */
+  background: #2f2f48; 
 }
 
 body.dark-mode tr:nth-child(odd) {
-  background: #2a2a40;  /* same as container */
+  background: #2a2a40;  
 }
 body.dark-mode td, 
 body.dark-mode th {
