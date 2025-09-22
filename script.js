@@ -1,24 +1,17 @@
-
 document.addEventListener("DOMContentLoaded", loadExpenses);
-
 const expenseForm = document.getElementById("expense-form");
 const expenseList = document.getElementById("expense-list");
 const totalExpenses = document.getElementById("total-expenses");
 const categorySummary = document.getElementById("category-summary");
 const searchInput = document.getElementById("search");
 const filterMonth = document.getElementById("filter-month");
-
 let chart; // chart.js instance
-
-// Add Expense
 expenseForm.addEventListener("submit", function (e) {
   e.preventDefault();
-
   const description = document.getElementById("description").value;
   const amount = document.getElementById("amount").value;
   const category = document.getElementById("category").value;
   const date = document.getElementById("date").value;
-
   if (description && amount && category && date) {
     const expense = { description, amount, category, date };
     saveExpense(expense);
@@ -28,7 +21,6 @@ expenseForm.addEventListener("submit", function (e) {
   }
 });
 
-// Display Expense Row
 function displayExpense(expense) {
   const row = document.createElement("tr");
 
@@ -43,14 +35,12 @@ function displayExpense(expense) {
     </td>
   `;
 
-  // Delete
   row.querySelector(".delete-btn").addEventListener("click", () => {
     row.remove();
     deleteExpense(expense);
     updateSummary();
   });
 
-  // Edit
   row.querySelector(".edit-btn").addEventListener("click", () => {
     document.getElementById("description").value = expense.description;
     document.getElementById("amount").value = expense.amount;
@@ -64,21 +54,18 @@ function displayExpense(expense) {
   expenseList.appendChild(row);
 }
 
-// Save Expense to localStorage
 function saveExpense(expense) {
   let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
   expenses.push(expense);
   localStorage.setItem("expenses", JSON.stringify(expenses));
 }
 
-// Load Expenses from localStorage
 function loadExpenses() {
   let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
   expenses.forEach(expense => displayExpense(expense));
   updateSummary();
 }
 
-// Delete Expense
 function deleteExpense(expenseToDelete) {
   let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
   expenses = expenses.filter(exp =>
@@ -90,7 +77,6 @@ function deleteExpense(expenseToDelete) {
   localStorage.setItem("expenses", JSON.stringify(expenses));
 }
 
-// Update Summary + Chart
 function updateSummary() {
   let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
   let total = expenses.reduce((sum, exp) => sum + parseFloat(exp.amount), 0);
@@ -111,7 +97,6 @@ function updateSummary() {
   updateChart(categoryTotals);
 }
 
-// Chart.js
 function updateChart(categoryTotals) {
   const ctx = document.getElementById("expenseChart").getContext("2d");
   if (chart) chart.destroy();
@@ -127,7 +112,6 @@ function updateChart(categoryTotals) {
   });
 }
 
-// Filters
 function applyFilters() {
   let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
   let filtered = expenses.filter(exp => {
@@ -151,7 +135,6 @@ function resetFilters() {
   loadExpenses();
 }
 
-// Dark Mode Toggle
 const toggleBtn = document.getElementById("toggle-mode");
 toggleBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
