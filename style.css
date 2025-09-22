@@ -1,5 +1,3 @@
-
-/* General */
 body {
   font-family: Arial, sans-serif;
   background: #f3f4f6;
@@ -19,7 +17,6 @@ body {
   box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Headings */
 h1 {
   text-align: center;
   color: #2c3e50;
@@ -31,7 +28,7 @@ h2 {
   color: #2c3e50;
 }
 
-/* Form */
+
 form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -59,7 +56,6 @@ form button:hover {
   background: #2980b9;
 }
 
-/* Filters */
 .filters {
   display: flex;
   flex-wrap: wrap;
@@ -84,7 +80,6 @@ form button:hover {
   background: #1e8449;
 }
 
-/* Dark Mode Button */
 #toggle-mode {
   background: #8e44ad;
 }
@@ -93,7 +88,6 @@ form button:hover {
   background: #6c3483;
 }
 
-/* Summary */
 .summary {
   margin-bottom: 25px;
   padding: 15px;
@@ -105,7 +99,6 @@ form button:hover {
   margin: 5px 0;
 }
 
-/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -152,7 +145,6 @@ tr:nth-child(even) {
   background: #d68910;
 }
 
-/* Chart */
 .chart-container {
   margin-top: 25px;
   display: flex;
@@ -164,8 +156,7 @@ tr:nth-child(even) {
   max-height: 300px; /* smaller height */
 }
 
-/* Dark Mode */
-/* Dark Mode */
+
 body.dark-mode {
   background: #1e1e2f;
   color: #f5f5f5;
@@ -188,12 +179,10 @@ body.dark-mode table thead {
   background: #444;
 }
 
-/* ✅ Fix white summary box */
 body.dark-mode .summary {
   background: #3a3a55;
 }
 
-/* ✅ Fix white alternate rows */
 body.dark-mode tr:nth-child(even) {
   background: #2f2f48;  /* darker alternate row */
 }
@@ -201,7 +190,6 @@ body.dark-mode tr:nth-child(even) {
 body.dark-mode tr:nth-child(odd) {
   background: #2a2a40;  /* same as container */
 }
-/* Ensure all table cells, including date, are light in dark mode */
 body.dark-mode td, 
 body.dark-mode th {
   color: #f5f5f5 !important;
